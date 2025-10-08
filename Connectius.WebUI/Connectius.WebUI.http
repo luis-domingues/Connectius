@@ -1,0 +1,6 @@
+@Connectius.WebUI_HostAddress = http://localhost:5189
+
+GET {{Connectius.WebUI_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
