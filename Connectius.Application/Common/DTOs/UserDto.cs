@@ -1,4 +1,4 @@
-namespace Connectius.Application.DTOs;
+namespace Connectius.Application.Common.DTOs;
 
 public class UserDto
 {

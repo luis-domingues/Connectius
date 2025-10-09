@@ -1,4 +1,4 @@
-namespace Connectius.Application.User.EventsHandlers;
+namespace Connectius.Application.Common.Exceptions;
 
 public class UserNotFoundException : Exception
 {
