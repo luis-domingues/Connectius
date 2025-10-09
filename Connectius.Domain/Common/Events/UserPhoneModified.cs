@@ -2,14 +2,14 @@ using Connectius.Domain.Interfaces;
 
 namespace Connectius.Domain.Events;
 
-public class UserPhoneChanged : IDomainEvents
+public class UserPhoneModified : IDomainEvents
 {
     public Guid  UserId { get; }
     public string OldPhoneNumber { get; }
     public string NewPhoneNumber { get; }
     public DateTime OccurredOn { get; }
 
-    public UserPhoneChanged(Guid userId, string oldPhoneNumber, string newPhoneNumber)
+    public UserPhoneModified(Guid userId, string oldPhoneNumber, string newPhoneNumber)
     {
         UserId = userId;
         OldPhoneNumber = oldPhoneNumber;

@@ -2,14 +2,14 @@ using Connectius.Domain.Interfaces;
 
 namespace Connectius.Domain.Events;
 
-public class UserEmailChanged : IDomainEvents
+public class UserEmailModified : IDomainEvents
 {
     public Guid UserId { get; }
     public string OldEmail { get; }
     public string NewEmail { get; }
     public DateTime OccurredOn { get; }
 
-    public UserEmailChanged(
+    public UserEmailModified(
         Guid userId,
         string oldEmail,
         string newEmail

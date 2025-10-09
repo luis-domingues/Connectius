@@ -1,8 +1,9 @@
 using Connectius.Domain.Interfaces;
+using MediatR;
 
 namespace Connectius.Domain.Events;
 
-public class UserCreated : IDomainEvents
+public class UserCreated : IDomainEvents, INotification
 {
     public Guid UserId { get; }
     public string Name { get; }
