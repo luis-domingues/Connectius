@@ -1,5 +1,6 @@
 ﻿using Connectius.Domain.Events;
 using Connectius.Domain.Interfaces;
+using Connectius.Domain.Services;
 using Connectius.Domain.ValueObjects;
 
 namespace Connectius.Domain.Entities;
@@ -46,7 +47,7 @@ public class User
             name,
             Username.Value,
             PhoneNumber.Value,
-            Username.Value
+            Email.Value
             );
         
         _domainEvents.Add(userCreated);
@@ -78,7 +79,7 @@ public class User
         var oldName = Name;
         Name = newName;
         
-        _domainEvents.Add(new UserNameChanged(
+        _domainEvents.Add(new UserNameModified(
             Id,
             oldName,
             newName));
@@ -92,7 +93,7 @@ public class User
         var oldEmail = Email;
         Email = newEmail;
         
-        _domainEvents.Add(new UserEmailChanged(
+        _domainEvents.Add(new UserEmailModified(
             Id,
             oldEmail.Value,
             newEmail.Value
@@ -108,9 +109,16 @@ public class User
         var oldPhoneNumber = PhoneNumber;
         PhoneNumber = newPhoneNumber;
         
-        _domainEvents.Add(new UserPhoneChanged(
+        _domainEvents.Add(new UserPhoneModified(
             Id,
             oldPhoneNumber.Value,
             newPhoneNumber.Value));
+    }
+
+    public void ChangePassword(Password newPassword, PasswordService passwordService)
+    {
+        HashedPassword = passwordService.CreateHash(newPassword);
+        
+        _domainEvents.Add(new UserPasswordModified(Id));
     }
 }
