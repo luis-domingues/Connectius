@@ -16,37 +16,36 @@ public class UserRepository : IUserRepostory
     
     public async Task<User> GetByIdAsync(Guid id)
     {
-        return await _context
-            .Set<User>()
+        return await _context.Users
             .FirstOrDefaultAsync(x => x.Id == id);
     }
 
     public Task<User> GetByUsernameAsync(string username)
     {
-        throw new NotImplementedException();
+        return _context.Users
+            .FirstOrDefaultAsync(x => x.Username.Value == username);
     }
 
     public async Task AddAsync(User user)
     {
-        await _context
-            .Set<User>()
-            .AddAsync(user);
-        
+        await _context.Users.AddAsync(user);
         await _context.SaveChangesAsync();
     }
 
-    public Task UpdateAsync(User user)
+    public async Task UpdateAsync(User user)
     {
-        throw new NotImplementedException();
+        _context.Users.Update(user);
+        await _context.SaveChangesAsync();
     }
 
-    public Task DeleteAsync(User user)
+    public async Task DeleteAsync(User user)
     {
-        throw new NotImplementedException();
+        _context.Users.Remove(user);
+        await _context.SaveChangesAsync();
     }
 
-    public Task<bool> ExistsAsync(Guid id)
+    public async Task<bool> ExistsAsync(Guid id)
     {
-        throw new NotImplementedException();
+        return await _context.Users.AnyAsync(x => x.Id == id);
     }
 }
