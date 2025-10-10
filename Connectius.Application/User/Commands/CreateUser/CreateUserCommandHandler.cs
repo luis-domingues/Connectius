@@ -1,4 +1,6 @@
+using Connectius.Domain.Common.Interfaces;
 using Connectius.Domain.Interfaces;
+using Connectius.Domain.Services;
 using Connectius.Domain.ValueObjects;
 using MediatR;
 
@@ -7,7 +9,15 @@ namespace Connectius.Application.User.Commands.CreateUser;
 public class CreateUserCommandHandler : IRequestHandler<CreateUserCommand, Guid>
 {
     private readonly IUserRepostory _userRepository;
-    private readonly IPasswordHasher _passwordHasher;
+    private readonly IPasswordService _passwordService;
+
+    public CreateUserCommandHandler(
+        IUserRepostory userRepository,
+        IPasswordService passwordService)
+    {
+        _userRepository = userRepository;
+        _passwordService = passwordService;
+    }
     
     public async Task<Guid> Handle(CreateUserCommand request, CancellationToken cancellationToken)
     {
@@ -15,8 +25,8 @@ public class CreateUserCommandHandler : IRequestHandler<CreateUserCommand, Guid>
         var email = new Email(request.Email);
         var phoneNumber = new PhoneNumber(request.PhoneNumber);
         var password = new Password(request.Password);
-        
-        var hashedPassword = _passwordHasher.HashPassword(password.Value);
+
+        var hashedPassword = _passwordService.CreateHash(password);
         
         var user = new Domain.Entities.User(
             request.Name,
