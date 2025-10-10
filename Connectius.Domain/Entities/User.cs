@@ -115,10 +115,9 @@ public class User
             newPhoneNumber.Value));
     }
 
-    public void ChangePassword(Password newPassword, PasswordService passwordService)
+    public void SetHashedPassword(string hashedPassword)
     {
-        HashedPassword = passwordService.CreateHash(newPassword);
-        
+        HashedPassword = hashedPassword;
         _domainEvents.Add(new UserPasswordModified(Id));
     }
 }
