@@ -1,0 +1,13 @@
+C:\Users\3D Trends Automation\Desktop\Projetos_do_Luís\Connectius\Connectius.Domain\bin\Debug\net9.0\Connectius.Domain.deps.json
+C:\Users\3D Trends Automation\Desktop\Projetos_do_Luís\Connectius\Connectius.Domain\bin\Debug\net9.0\Connectius.Domain.dll
+C:\Users\3D Trends Automation\Desktop\Projetos_do_Luís\Connectius\Connectius.Domain\bin\Debug\net9.0\Connectius.Domain.pdb
+C:\Users\3D Trends Automation\Desktop\Projetos_do_Luís\Connectius\Connectius.Domain\obj\Debug\net9.0\Connectius.Domain.csproj.AssemblyReference.cache
+C:\Users\3D Trends Automation\Desktop\Projetos_do_Luís\Connectius\Connectius.Domain\obj\Debug\net9.0\Connectius.Domain.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\3D Trends Automation\Desktop\Projetos_do_Luís\Connectius\Connectius.Domain\obj\Debug\net9.0\Connectius.Domain.AssemblyInfoInputs.cache
+C:\Users\3D Trends Automation\Desktop\Projetos_do_Luís\Connectius\Connectius.Domain\obj\Debug\net9.0\Connectius.Domain.AssemblyInfo.cs
+C:\Users\3D Trends Automation\Desktop\Projetos_do_Luís\Connectius\Connectius.Domain\obj\Debug\net9.0\Connectius.Domain.csproj.CoreCompileInputs.cache
+C:\Users\3D Trends Automation\Desktop\Projetos_do_Luís\Connectius\Connectius.Domain\obj\Debug\net9.0\Connectius.Domain.sourcelink.json
+C:\Users\3D Trends Automation\Desktop\Projetos_do_Luís\Connectius\Connectius.Domain\obj\Debug\net9.0\Connectius.Domain.dll
+C:\Users\3D Trends Automation\Desktop\Projetos_do_Luís\Connectius\Connectius.Domain\obj\Debug\net9.0\refint\Connectius.Domain.dll
+C:\Users\3D Trends Automation\Desktop\Projetos_do_Luís\Connectius\Connectius.Domain\obj\Debug\net9.0\Connectius.Domain.pdb
+C:\Users\3D Trends Automation\Desktop\Projetos_do_Luís\Connectius\Connectius.Domain\obj\Debug\net9.0\ref\Connectius.Domain.dll
