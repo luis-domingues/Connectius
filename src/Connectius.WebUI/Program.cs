@@ -1,7 +1,9 @@
 using Connectius.Application.Handlers;
+using Connectius.Application.Interfaces;
 using Connectius.Domain.Interfaces;
 using Connectius.Infrastructure.Data;
 using Connectius.Infrastructure.Repositories;
+using Connectius.Infrastructure.Security;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -11,6 +13,7 @@ builder.Services.AddDbContext<UserDbContext>(options => options
         .GetConnectionString("UserConnection")));
 
 builder.Services.AddScoped<IUserRepository,UserRepository>();
+builder.Services.AddScoped<IPasswordHasher, PasswordHasherAdapter>();
 
 builder.Services.AddControllers();
 builder.Services.AddScoped<CreateUserHandler>();
