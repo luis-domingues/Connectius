@@ -1,8 +1,7 @@
+using Connectius.Domain.Entities;
+
 namespace Connectius.Application.Services.Authentication;
 
 public record AuthenticationResult(
-    Guid Id,
-    string DisplayName,
-    string Username,
-    string Email,
+    User user,
     string Token);

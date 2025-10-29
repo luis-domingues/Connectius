@@ -3,6 +3,7 @@ using System.Security.Claims;
 using System.Text;
 using Connectius.Application.Common.Interfaces.Authentication;
 using Connectius.Application.Common.Services;
+using Connectius.Domain.Entities;
 using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
 
@@ -19,7 +20,7 @@ public class JwtTokenGenerator : IJwtTokenGenerator
         _jwtSettings = jwtOptions.Value;
     }
     
-    public string GenerateToken(Guid userId, string displayName, string username)
+    public string GenerateToken(User user)
     {
         var signingCredentials = new SigningCredentials(new SymmetricSecurityKey(
             Encoding.UTF8.GetBytes(_jwtSettings.Secret)), 
@@ -27,9 +28,9 @@ public class JwtTokenGenerator : IJwtTokenGenerator
         
         var claims = new[]
         {
-            new Claim(JwtRegisteredClaimNames.Sub, userId.ToString()),
-            new Claim(JwtRegisteredClaimNames.UniqueName, username),
-            new Claim(ClaimTypes.Name, displayName),
+            new Claim(JwtRegisteredClaimNames.Sub, user.Id.ToString()),
+            new Claim(JwtRegisteredClaimNames.UniqueName, user.Username),
+            new Claim(ClaimTypes.Name, user.DisplayName),
             new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString())
         };
 
