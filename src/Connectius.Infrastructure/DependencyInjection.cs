@@ -1,6 +1,8 @@
 using Connectius.Application.Common.Interfaces.Authentication;
+using Connectius.Application.Common.Interfaces.Persistence;
 using Connectius.Application.Common.Services;
 using Connectius.Infrastructure.Authentication;
+using Connectius.Infrastructure.Persistence;
 using Connectius.Infrastructure.Services;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -17,6 +19,8 @@ public static class DependencyInjection
         
         services.AddSingleton<IJwtTokenGenerator, JwtTokenGenerator>();
         services.AddSingleton<IDateTimeProvider, DateTimeProvider>();
+
+        services.AddScoped<IUserRepository, UserRepository>();
         return services;
     }
 }
